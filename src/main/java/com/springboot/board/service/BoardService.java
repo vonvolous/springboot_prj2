@@ -84,7 +84,7 @@ public class BoardService {
                 String storedFileName = System.currentTimeMillis() + "_" + originalFilename;
 
                 // 4. 저장 경로 설정
-                String savePath = "C:/Users/hanyo/Desktop/project/[3-2]Clug_Server_Study" + storedFileName; // C:/springboot_img/9802398403948_내사진.jpg
+                String savePath = "C:/Users/hanyo/Desktop/project/[3-2]Clug_Server_Study/" + storedFileName; // C:/springboot_img/9802398403948_내사진.jpg
 
                 // 5. 해당 경로에 파일 저장
                 boardFile.transferTo(new File(savePath));
@@ -114,6 +114,7 @@ public class BoardService {
         boardRepository.updateHits(id);
     }
 
+    @Transactional
     public BoardDTO findById(Long id) {
         Optional<BoardEntity> optionalBoardEntity = boardRepository.findById(id);
         if (optionalBoardEntity.isPresent()) {
